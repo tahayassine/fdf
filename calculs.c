@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   calculs.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tyassine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/06/29 18:58:46 by tyassine          #+#    #+#             */
+/*   Updated: 2016/06/29 19:04:46 by tyassine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fdf.h"
 
@@ -33,7 +43,8 @@ void		calculate(t_win *win, t_point *point)
 	if (win->opt == ISO)
 	{
 		point->d2x = act_x - act_y + WIN_W * win->cte1;
-		point->d2y = -act_z + act_x * win->cte1 + act_y * win->cte1 + WIN_H * win->cte2;
+		point->d2y =
+			-act_z + act_x * win->cte1 + act_y * win->cte1 + WIN_H * win->cte2;
 	}
 	else if (win->opt == PARA)
 	{

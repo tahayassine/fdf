@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fdf.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tyassine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/06/29 19:40:10 by tyassine          #+#    #+#             */
+/*   Updated: 2016/06/29 19:40:19 by tyassine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
@@ -19,11 +30,8 @@
 # define WHITE 0xFFFFFF
 # define GREY 0x8f8f8f
 # define WED 0xFF0000
-# define OPTION int
 # define ISO 1
 # define PARA 0
-# define PUT 0
-# define DRAW 1
 
 typedef struct	s_point
 {
@@ -55,7 +63,7 @@ typedef struct	s_win
 	int			pad_h;
 	float		cte1;
 	float		cte2;
-	OPTION		opt;
+	int			opt;
 //	int			draw_type;
 }				t_win;
 

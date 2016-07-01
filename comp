@@ -1,1 +1,0 @@
-gcc -Wall -Wextra -Werror -o mlx *.c -I libft/ libft/*.c -lmlx -framework OpenGL -framework Appkit

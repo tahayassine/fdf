@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tyassine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/06/29 18:59:30 by tyassine          #+#    #+#             */
+/*   Updated: 2016/06/29 19:05:03 by tyassine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fdf.h"
 
@@ -18,8 +29,6 @@ t_point		**create_map(t_win *win)
 		grid[i] = create_int_table(win, temp, i);
 		i++;
 	}
-	//grid[i] = create_int_table(win, temp, i);
-
 	close(fd);
 	win->map_h = i;
 	return (grid);

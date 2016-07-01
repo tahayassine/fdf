@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tyassine <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/06/29 18:58:33 by tyassine          #+#    #+#             */
+/*   Updated: 2016/06/29 19:05:36 by tyassine         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fdf.h"
 
@@ -56,12 +66,11 @@ void		draw_point(t_win *win, int x, int y, int color)
 {
 	ft_memcpy(&win->data[(x * 4) + (y * win->size)], &(color),
 			(size_t)(sizeof(int)));
-
 }
 
 int			choose_color(int p1, int p2, int max)
 {
-	max = max+1;
+	max = max + 1;
 	if (((p1 + p2) / 2) > 0)
 		return (GREY);
 	else if (((p1 + p2) / 2) == 0)
