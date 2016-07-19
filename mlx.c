@@ -6,13 +6,13 @@
 /*   By: tyassine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/29 18:59:10 by tyassine          #+#    #+#             */
-/*   Updated: 2016/06/29 18:59:14 by tyassine         ###   ########.fr       */
+/*   Updated: 2016/07/19 17:26:09 by tyassine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	ft_import_map(t_win *win)
+void	import_map(t_win *win)
 {
 	win->init = mlx_init();
 	win->win = mlx_new_window(win->init, WIN_W, WIN_H, "FdF");

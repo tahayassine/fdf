@@ -53,9 +53,9 @@ $(NAME): $(LIB) $(OBJ_NAME)
 	@echo "| |              | || |              | || |              | |";
 	@echo "| '--------------' || '--------------' || '--------------' |";
 	@echo " '----------------'  '----------------'  '----------------' ";
-	@$(CC) -o fdf $(OBJ_NAME) $(STCS) $(FRAMEWORKS)
+	@$(CC) -o fdf $(OBJ_NAME) $(STCS) $(FRAMEWORKS) 
 $(OBJ_NAME):
-	@$(CC) $(CFLAGS) -c $(SRC_NAME) -I libft
+	@$(CC) $(CFLAGS) -c $(SRC_NAME) -I libft -I minilibx_macos/
 clean:
 	@rm -f *.o
 	@rm -f *.a

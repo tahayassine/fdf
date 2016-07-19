@@ -12,14 +12,12 @@
 
 #include "fdf.h"
 
-int		len_tab(char *argv)
+int		len_tab(int fd)
 {
-	int		fd;
 	char	*buff;
 	int		ret;
 	int		size;
 
-	fd = open(argv, O_RDONLY);
 	buff = (char *)ft_strnew(200);
 	size = 0;
 	while ((ret = read(fd, buff, 200)) > 0)
@@ -29,6 +27,19 @@ int		len_tab(char *argv)
 	close(fd);
 	free(buff);
 	return (size);
+}
+
+int		check_type_file(char *str, char *type)
+{
+	while ((*str) != '\0')
+	{
+		if (*str == '.' && ft_strequ(str + 1, type) == 1)
+		{
+			return (1);
+		}
+		str++;
+	}
+	return (0);
 }
 
 int		count_map_length(char **str)

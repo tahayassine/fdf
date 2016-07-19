@@ -6,7 +6,7 @@
 /*   By: tyassine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/29 19:40:10 by tyassine          #+#    #+#             */
-/*   Updated: 2016/06/29 19:40:19 by tyassine         ###   ########.fr       */
+/*   Updated: 2016/07/01 18:50:02 by tyassine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,20 @@
 # include <libft.h>
 # include <get_next_line.h>
 # include <mlx.h>
-# include <stdio.h>
 # include <math.h>
 # include <fcntl.h>
 
-# define WIN_H 2000
-# define WIN_W 2000
+# define WIN_H	1000
+# define WIN_W	1000
 
-# define BLUE  0x00FFFF
-# define BROWN 0xAD4F09
-# define GREEN 0x25FFA0
-# define WHITE 0xFFFFFF
-# define GREY 0x8f8f8f
-# define WED 0xFF0000
-# define ISO 1
-# define PARA 0
+# define BLUE	0x00FFFF
+# define BROWN	0xAD4F09
+# define GREEN	0x25FFA0
+# define WHITE	0xFFFFFF
+# define GREY	0x8f8f8f
+# define WED	0xFF0000
+# define ISO	1
+# define PARA	0
 
 typedef struct	s_point
 {
@@ -53,7 +52,7 @@ typedef struct	s_win
 	int			endian;
 	int			color;
 	t_point		**map;
-	char		*path;
+	int			fd;
 	int			map_w;
 	int			map_h;
 	int			max_z;
@@ -64,7 +63,7 @@ typedef struct	s_win
 	float		cte1;
 	float		cte2;
 	int			opt;
-//	int			draw_type;
+	char		*av;
 }				t_win;
 
 typedef struct	s_bresenham
@@ -76,14 +75,13 @@ typedef struct	s_bresenham
 	int			delta_error;
 }				t_bres;
 
-void recharge(t_win *win);
-
+void			recharge(t_win *win);
 int				count_map_length(char **str);
-int				len_tab(char *argv);
+int				len_tab(int fd);
 t_point			*create_int_table(t_win *win, char *str, int pos);
 t_point			**create_map(t_win *win);
 t_point			ft_create_point(char *str, int x, int y);
-void			ft_import_map(t_win *win);
+void			import_map(t_win *win);
 int				key_hook(int keycode, t_win *win);
 int				expose_hook(t_win *win);
 void			calcule_coord(t_win *win);
@@ -112,5 +110,6 @@ void			re_mode(t_win *win);
 int				mouse_hook(int button, int x, int y, t_win *win);
 void			increase_pike(t_win *win);
 void			decrease_pike(t_win *win);
+int				check_type_file(char *str, char *type);
 
 #endif

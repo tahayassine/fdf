@@ -6,7 +6,7 @@
 /*   By: tyassine <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/29 18:59:30 by tyassine          #+#    #+#             */
-/*   Updated: 2016/06/29 19:05:03 by tyassine         ###   ########.fr       */
+/*   Updated: 2016/07/19 17:26:01 by tyassine         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,18 @@ t_point		**create_map(t_win *win)
 {
 	t_point	**grid;
 	int		i;
-	int		fd;
 	char	*temp;
 
 	i = 0;
 	win->map_w = 0;
-	grid = (t_point **)malloc(sizeof(t_point *) * len_tab(win->path));
-	if (!(fd = open(win->path, O_RDONLY)))
-		exit(0);
-	while (get_next_line(fd, &temp))
+	grid = (t_point **)malloc(sizeof(t_point *) * len_tab(win->fd));
+	win->fd = open(win->av, O_RDONLY);
+	while (get_next_line(win->fd, &temp))
 	{
 		grid[i] = create_int_table(win, temp, i);
 		i++;
 	}
-	close(fd);
+	close(win->fd);
 	win->map_h = i;
 	return (grid);
 }
